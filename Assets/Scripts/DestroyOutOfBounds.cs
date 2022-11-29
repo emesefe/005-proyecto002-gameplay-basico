@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class DestroyOutOfBounds : MonoBehaviour
 {
-    public float upperLimit = 20f;
-    public float lowerLimit = -10f;
+    private float upperLimit = 30f;
+    private float lowerLimit = -10f;
 
     private void Update()
     {
@@ -14,6 +16,10 @@ public class DestroyOutOfBounds : MonoBehaviour
         if (transform.position.z < lowerLimit)
         {
             Destroy(gameObject);
+            
+            // Mecánica del Game Over
+            Debug.Log("GAME OVER");
+            Time.timeScale = 0;
         }
 
         // LÍMITE SUPERIOR -> BALA FALLIDA

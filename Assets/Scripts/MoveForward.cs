@@ -9,6 +9,7 @@ public class MoveForward : MonoBehaviour
 
     private void Update()
     {
+        // Mover hacia adelante a la velocidad speed
         transform.Translate(Vector3.forward * 
                             speed * Time.deltaTime);
     }
